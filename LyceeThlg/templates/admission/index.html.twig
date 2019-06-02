@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% form_theme AdmissionFContact 'bootstrap_4_layout.html.twig'  %}
+{% block title %}Admission{% endblock %}
+{% block body %}
+
+    <h1>Formulaire de demande d'admission</h1>
+    {{form_start(AdmissionFContact)}}
+
+    {{ form_row(AdmissionFContact.name, {'attr' : { 'placeholder': "Votre Nom"}, 'label': 'Nom' } ) }}
+
+    {{ form_row(AdmissionFContact.email, {'attr' : { 'placeholder': "Votre email"},  'label': 'Adresse Email'} ) }}
+
+    {{ form_row(AdmissionFContact.phoneNumber, {'attr' : { 'placeholder': "Votre numéro de téléphone"},  'label': 'Numéro de téléphone'} ) }}
+    {{ form_row(AdmissionFContact.city, {'attr' : { 'placeholder': "Votre ville actuelle"},  'label': 'Ville'} ) }}
+    {{ form_row(AdmissionFContact.birthDate, {'attr' : { 'placeholder': "Votre date de naissance"},  'label': 'Date de naissance'} ) }}
+    <button type="submit" class ="btn">Suivant</button><br><br>
+
+    {% block javascript %}
+    <script src={{ asset("build/app.js") }}></script>
+	{% endblock %}
+
+    {{form_end(AdmissionFContact)}}
+
+{% endblock %}

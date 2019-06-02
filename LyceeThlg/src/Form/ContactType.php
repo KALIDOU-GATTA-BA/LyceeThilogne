@@ -1,13 +1,12 @@
 <?php
-
 namespace App\Form;
 
-use App\Entity\Admission;
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AdmissionType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -15,14 +14,14 @@ class AdmissionType extends AbstractType
             ->add('name')
             ->add('email')
             ->add('phoneNumber')
-            ->add('city')
-            ->add('birthDate');
+            ->add('subject')
+            ->add('message')
+        ;
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Admission::class,
+            'data_class' => Contact::class,
         ]);
     }
 }

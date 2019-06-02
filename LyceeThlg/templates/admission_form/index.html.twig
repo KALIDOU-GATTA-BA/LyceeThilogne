@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% form_theme AdmissionFormContact 'bootstrap_4_layout.html.twig'  %}
+{% block title %}Admission{% endblock %}
+{% block body %}
+
+    <h1>Formulaire de demande d'admission</h1>
+    {{form_start(AdmissionFormContact)}}
+
+    {{ form_row(AdmissionFormContact.currentLevel, {'attr' : { 'placeholder': "Niveau d'étude actuel"}, 'label': 'Niveau d\'étude actuel' } ) }}
+
+    {{ form_row(AdmissionFormContact.desiredLevel, {'attr' : { 'placeholder': "Études envisagées"},  'label': 'Études envisagées'} ) }}
+
+    {{ form_row(AdmissionFormContact.firstSemesterMark, {'attr' : { 'placeholder': "Moyenne du premier semestre"},  'label': 'Moyenne du premier semestre'} ) }}
+    {{ form_row(AdmissionFormContact.secondSemesterMark, {'attr' : { 'placeholder': "Moyenne du second semestre"},  'label': 'Moyenne du second semestre'} ) }}
+    {{ form_row(AdmissionFormContact.rank, {'attr' : { 'placeholder': "Rang"},  'label': 'Rang'} ) }}
+    {{ form_row(AdmissionFormContact.totalStudents, {'attr' : { 'placeholder': "Nombre total d'élèves"},  'label': 'Nombre total d\'élèves'} ) }}
+
+    <button type="submit" class ="btn">Envoyer</button><br><br>
+
+    {% block javascript %}
+    <script src={{ asset("build/app.js") }}></script>
+	{% endblock %}
+
+    {{form_end(AdmissionFormContact)}}
+
+{% endblock %}
